@@ -31,10 +31,10 @@ jobs:
 
     - name: Grant execution permissions for Jest
       run: chmod +x ./node_modules/.bin/jest
-      
+
     - name: Run unit tests            
       run: |
-        npm test                     
+        NEW_RELIC_NO_CONFIG_FILE=true npm test                     
 
     - name: Build Docker image        
       run: |
