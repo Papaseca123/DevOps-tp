@@ -209,4 +209,7 @@ app.get('/api/pedidos/distrito/:distrito', (req, res) => {
 
 
     const port = process.env.port || 3000;
-app.listen(port, ()=> console.log(`Escuchando en el puerto ${port}... `));
+    if (process.env.NODE_ENV !== 'test') { // Solo escucha si no estás en ambiente de pruebas
+        app.listen(port, () => console.log(`Escuchando en el puerto ${port}...`));
+      }
+module.exports = { app };
